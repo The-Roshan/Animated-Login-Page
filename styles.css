@@ -1,0 +1,101 @@
+/* Reset and basic styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Gradient background for the body */
+body {
+    background: linear-gradient(135deg, #ff6f91, #ff9671, #ffc75f, #f9f871, #00c9a7, #92f2f8, #a3bffa, #ffabff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 20s ease infinite;
+    position: relative;
+    z-index: -3; /* Ensure the body background is behind everything */
+}
+
+/* Ensure the canvas covers the entire viewport */
+#background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Ensure the canvas is above the body background but behind the content */
+    pointer-events: none; /* Prevent interactions with the canvas */
+}
+
+/* Keyframes for Background Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container for the login form */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    z-index: 1; /* Keep content above the canvas */
+}
+
+/* Login form styles */
+.login-form {
+    background: rgba(0, 0, 0, 0.7); /* Darker background for better contrast */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Larger shadow for depth */
+    color: white;
+    text-align: center;
+    max-width: 400px; /* Restrict width for better readability */
+    width: 100%; /* Full width on smaller screens */
+}
+
+/* Form title styles */
+.login-form h2 {
+    margin: 0 0 20px;
+    font-size: 24px; /* Larger title text */
+}
+
+/* Form input styles */
+.login-form input {
+    display: block;
+    width: calc(100% - 20px); /* Full width with padding */
+    padding: 15px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+}
+
+/* Form button styles */
+.login-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #00c9a7;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px; /* Larger button text */
+    transition: background 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+/* Hover effect for the button */
+.login-form button:hover {
+    background: #009688;
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Focus effect for inputs */
+.login-form input:focus {
+    outline: none;
+    border: 2px solid #00c9a7; /* Highlighted border on focus */
+}
